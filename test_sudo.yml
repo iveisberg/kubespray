@@ -1,0 +1,11 @@
+---
+- name: Test sudo
+  hosts: all
+  become: yes
+  tasks:
+    - name: Check sudo access
+      command: whoami
+      register: result
+
+    - debug:
+        msg: "{{ result.stdout }}"
